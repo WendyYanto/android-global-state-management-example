@@ -56,4 +56,8 @@ class CounterStore : Store() {
     fun clearSubscriber() {
         this.subscriptions.clear()
     }
+
+    fun getState(): CounterState {
+        return this.state
+    }
 }

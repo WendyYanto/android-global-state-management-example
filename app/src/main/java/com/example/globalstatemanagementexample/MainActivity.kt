@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        
         incrementButton = findViewById(R.id.btn_increment)
         decrementButton = findViewById(R.id.btn_decrement)
         counterText = findViewById(R.id.counter)
@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         counterStore.unsubscribe(::showCounter)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.showCounter(counterStore.getState())
     }
 
     private fun showCounter(state: CounterState) {
