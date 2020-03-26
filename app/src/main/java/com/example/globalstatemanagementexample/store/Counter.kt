@@ -49,7 +49,11 @@ class CounterStore : Store() {
         this.subscriptions.add(subscriber)
     }
 
-    fun destroy() {
+    fun unsubscribe(subscriber: Subscriber<CounterState>) {
+        this.subscriptions.remove(subscriber)
+    }
+
+    fun clearSubscriber() {
         this.subscriptions.clear()
     }
 }

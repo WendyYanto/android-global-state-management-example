@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.globalstatemanagementexample.store.CounterStore
 import com.example.globalstatemanagementexample.store.CounterAction
+import com.example.globalstatemanagementexample.store.CounterState
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,9 +29,7 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.fl_fragment, MainFragment.getInstance())
             .commit()
 
-        counterStore.subscribe {
-            this.showCounter(it.value.toString())
-        }
+        counterStore.subscribe(::showCounter)
 
         incrementButton.setOnClickListener {
             counterStore.dispatch(CounterAction.Increment)
@@ -41,8 +40,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showCounter(value: String) {
-        counterText.text = value
+    override fun onDestroy() {
+        super.onDestroy()
+        counterStore.unsubscribe(::showCounter)
+    }
+
+    private fun showCounter(state: CounterState) {
+        counterText.text = state.value.toString()
     }
 
 }
