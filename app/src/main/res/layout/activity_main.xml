@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:padding="10dp"
+        android:textSize="14dp"
+        />
+
+    <Button
+        android:id="@+id/btn_increment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Increment"
+        />
+
+    <Button
+        android:id="@+id/btn_decrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Decrement"
+        />
+
+    <FrameLayout
+        android:id="@+id/fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
