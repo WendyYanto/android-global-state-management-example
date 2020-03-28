@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
         incrementButton = findViewById(R.id.btn_increment)
         decrementButton = findViewById(R.id.btn_decrement)
         counterText = findViewById(R.id.counter)

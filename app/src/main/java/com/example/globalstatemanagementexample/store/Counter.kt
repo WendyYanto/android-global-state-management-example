@@ -32,9 +32,9 @@ class CounterStore : Store() {
             }
         }
 
-    override val mutate: Mutate<State> = { state, actions ->
+    override fun mutate(state: State, action: Action): State {
         val data = state as CounterState
-        when (actions) {
+        return when (action) {
             is CounterAction.Increment -> data.copy(value = data.value + 1)
             is CounterAction.Decrement -> data.copy(value = data.value - 1)
             else -> data
